@@ -21,10 +21,10 @@ class elegant_LED
     elegant_LED(int channel, int bit_resolution, int frequency, int pin);
     void on(void);
     void off(void);
-    void rising_pulse(unsigned long period);
-    /*void falling_pulse(void);
-    void rising_falling_pulse(void);
-    void sine_pulse(void);*/
+    void rising_pulse(unsigned long period);         // linear rise
+    void falling_pulse(unsigned long period);        // linear fall
+    void rising_falling_pulse(unsigned long period); // linear rise and linear fall
+    void sine_pulse(unsigned long period);           // sinusoidal rise and sinusoidal fall
 };
 
 #endif
