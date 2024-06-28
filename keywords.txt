@@ -1,2 +1,7 @@
-class KEYWORD1
-method KEYWORD2
+elegant_LED  KEYWORD1
+on  KEYWORD2
+off  KEYWORD2
+rising_pulse  KEYWORD2
+falling_pulse  KEYWORD2
+rising_falling_pulse  KEYWORD2
+sine_pulse  KEYWORD2
