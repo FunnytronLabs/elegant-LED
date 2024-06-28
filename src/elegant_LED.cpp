@@ -1,4 +1,8 @@
-//
+/*
+  elegant_LED.h - Arduino ESP32 library for controlling LED's, including: on, off, blinking/pulsing.
+  Created by Joseph Elias [Funnytron Labs], June 28, 2024.
+  Released into the public domain.
+*/
 
 // === INCLUDES === //
 #include "elegant_LED.h"
@@ -45,7 +49,7 @@ void elegant_LED::rising_pulse(unsigned long period)
   ledcWrite(channel, duty_now);
 }
 
-void falling_pulse(unsigned long period) // !!! NEEDS CORRECTING !!!
+void elegant_LED::falling_pulse(unsigned long period) // !!! NEEDS CORRECTING !!!
 {
   static unsigned long time_start = millis();
   
@@ -62,7 +66,7 @@ void falling_pulse(unsigned long period) // !!! NEEDS CORRECTING !!!
   ledcWrite(channel, duty_now);
 }
 
-void rising_falling_pulse(unsigned long period) // !!! NEEDS CORRECTING !!!
+void elegant_LED::rising_falling_pulse(unsigned long period) // !!! NEEDS CORRECTING !!!
 {
   static unsigned long time_start = millis();
   
@@ -79,7 +83,7 @@ void rising_falling_pulse(unsigned long period) // !!! NEEDS CORRECTING !!!
   ledcWrite(channel, duty_now);
 }
 
-void sine_pulse(unsigned long period) // !!! NEEDS CORRECTING !!!
+void elegant_LED::sine_pulse(unsigned long period) // !!! NEEDS CORRECTING !!!
 {
   static unsigned long time_start = millis();
   
