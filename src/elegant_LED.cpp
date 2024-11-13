@@ -18,8 +18,10 @@ elegant_LED::elegant_LED(int channel, int bit_resolution, int frequency, int pin
   this->frequency      = frequency;
   this->pin            = pin;
   
-  ledcSetup(channel, frequency, bit_resolution);
-  ledcAttachPin(pin, channel);
+  //ledcSetup(channel, frequency, bit_resolution); // OLD API
+  //ledcAttachPin(pin, channel);                   // OLD API
+
+  ledcAttach(pin, frequency, bit_resolution); // NEW API
 }
 
 void elegant_LED::on(void)
@@ -29,7 +31,9 @@ void elegant_LED::on(void)
 
 void elegant_LED::off(void)
 {
-  ledcWrite(channel, 0);
+  //ledcWrite(channel, 0); // OLD API
+
+  ledcWrite(pin, 0); // NEW API
 }
 
 void elegant_LED::rising_pulse(unsigned long period)
@@ -46,7 +50,8 @@ void elegant_LED::rising_pulse(unsigned long period)
 
   unsigned int duty_now = (time_difference * duty_max) / period; // = gradient * time_difference : gradient = duty_max/period
   
-  ledcWrite(channel, duty_now);
+  //ledcWrite(channel, duty_now); // OLD API
+  ledcWrite(pin, duty_now); // NEW API
 }
 
 void elegant_LED::falling_pulse(unsigned long period) // !!! NEEDS CORRECTING !!!
@@ -63,7 +68,8 @@ void elegant_LED::falling_pulse(unsigned long period) // !!! NEEDS CORRECTING !!
 
   unsigned int duty_now = (time_difference * duty_max) / period; // = gradient * time_difference : gradient = duty_max/period
   
-  ledcWrite(channel, duty_now);
+  //ledcWrite(channel, duty_now); // OLD API
+  ledcWrite(pin, duty_now); // NEW API
 }
 
 void elegant_LED::rising_falling_pulse(unsigned long period) // !!! NEEDS CORRECTING !!!
@@ -80,7 +86,8 @@ void elegant_LED::rising_falling_pulse(unsigned long period) // !!! NEEDS CORREC
 
   unsigned int duty_now = (time_difference * duty_max) / period; // = gradient * time_difference : gradient = duty_max/period
   
-  ledcWrite(channel, duty_now);
+  //ledcWrite(channel, duty_now); // OLD API
+  ledcWrite(pin, duty_now); // NEW API
 }
 
 void elegant_LED::sine_pulse(unsigned long period) // !!! NEEDS CORRECTING !!!
@@ -97,5 +104,6 @@ void elegant_LED::sine_pulse(unsigned long period) // !!! NEEDS CORRECTING !!!
 
   unsigned int duty_now = (time_difference * duty_max) / period; // = gradient * time_difference : gradient = duty_max/period
   
-  ledcWrite(channel, duty_now);
+  //ledcWrite(channel, duty_now); // OLD API
+  ledcWrite(pin, duty_now); // NEW API
 }
