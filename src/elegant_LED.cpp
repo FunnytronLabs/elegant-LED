@@ -26,7 +26,8 @@ elegant_LED::elegant_LED(int channel, int bit_resolution, int frequency, int pin
 
 void elegant_LED::on(void)
 {
-  ledcWrite(channel, duty_max);
+  //ledcWrite(channel, duty_max); // OLD API
+  ledcWrite(pin, duty_max); // NEW API
 }
 
 void elegant_LED::off(void)
